@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/cygdrive/e/Programming/4_C/Synch/synch_semaphore.c
+/cygdrive/c/Users/김종하/Documents/Programming/Producer-And-Consumer-In-C/synch_pthread.c
 pthread.h
 -
 stdio.h

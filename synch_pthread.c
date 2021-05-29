@@ -1,42 +1,42 @@
 #include <pthread.h>
 #include <stdio.h>
-#include <semaphore.h>
+#include "synch_pthread.h"
+#include "threading_variables.h"
 
 #define ITER 1000
 #define BUFFER_SIZE 30
 
-int insert_item(int *item);
-int remove_item(int *item);
-void *thread_increment(void *arg);
-void *thread_decrement(void *arg);
-
-int x = 0; // count, max 29
-int in = 0;
-int out = 0;
-int buffer[BUFFER_SIZE];
-pthread_mutex_t mutex;
-
-int main() {
+int p_main() {
     pthread_t tid1, tid2;
 
-    // initialize semaphore
-    pthread_mutex_init(&mutex, 0);
+    pthread_mutex_init(&mutex, NULL);
+    pthread_cond_init(&buffer_has_space, NULL);
+    pthread_cond_init(&buffer_has_data, NULL);
 
-    pthread_create(&tid1, NULL, thread_increment, NULL);
-    pthread_create(&tid2, NULL, thread_decrement, NULL);
+    pthread_create(&tid1, NULL, p_thread_increment, NULL);
+    pthread_create(&tid2, NULL, p_thread_decrement, NULL);
     pthread_join(tid1, NULL);
     pthread_join(tid2, NULL);
     if (x != 0)
         printf("BOOM! counter=%d\n", x);
     else
         printf("OK counter=%d\n", x);
-}
 
-/* thread routine */
-void * thread_increment (void *arg) {
+    pthread_mutex_destroy(&mutex);
+    pthread_cond_destroy(&buffer_has_space);
+    pthread_cond_destroy(&buffer_has_data);
+
+    return 0;
+}
+void * p_thread_increment (void *arg) {
     int i, val;
     for (i=0; i< ITER ; i++) {
         pthread_mutex_lock(&mutex);
+
+        if (x == 100)
+        {
+            pthread_cond_wait(&buffer_has_space, &mutex);
+        }
 
         val = x;
         buffer[in] = val;
@@ -45,16 +45,21 @@ void * thread_increment (void *arg) {
         x = val + 1;
         in = (in + 1) % BUFFER_SIZE;
 
+        pthread_cond_signal(&buffer_has_data);
         pthread_mutex_unlock(&mutex);
     }
     return NULL;
 }
 
-void * thread_decrement (void *arg) {
+void * p_thread_decrement (void *arg) {
     int i, val;
     for (i = 0; i < ITER; i++) {
-        sem_wait(&full);
-        sem_wait(&mutex);
+        pthread_mutex_lock(&mutex);
+
+        if (x == 0)
+        {
+            pthread_cond_wait(&buffer_has_data, &mutex);
+        }
 
         val = x;
         printf("%u: %d\n", (unsigned int) pthread_self(), val);
@@ -62,8 +67,8 @@ void * thread_decrement (void *arg) {
         x = val - 1;
         out = (out + 1) % BUFFER_SIZE;
 
-        sem_post(&mutex);
-        sem_post(&empty);
+        pthread_cond_signal(&buffer_has_space);
+        pthread_mutex_unlock(&mutex);
     }
     return NULL;
 }

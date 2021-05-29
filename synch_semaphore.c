@@ -1,43 +1,33 @@
 #include <pthread.h>
 #include <stdio.h>
 #include <semaphore.h>
+#include "synch_semaphore.h"
+#include "threading_variables.h"
 
 #define ITER 1000
-#define BUFFER_SIZE 30
 
-int insert_item(int *item);
-int remove_item(int *item);
-void *thread_increment(void *arg);
-void *thread_decrement(void *arg);
-
-int x = 0; // count, max 29
-int in = 0;
-int out = 0;
-int buffer[BUFFER_SIZE];
-sem_t full;
-sem_t empty;
-sem_t mutex;
-
-int main() {
+int s_main() {
     pthread_t tid1, tid2;
 
     // initialize semaphore
     sem_init(&full, 0, 0);
-    sem_init(&empty, 0, BUFFER_SIZE);
     sem_init(&mutex, 0, 1);
 
-    pthread_create(&tid1, NULL, thread_increment, NULL);
-    pthread_create(&tid2, NULL, thread_decrement, NULL);
+    pthread_create(&tid1, NULL, s_thread_increment, NULL);
+    pthread_create(&tid2, NULL, s_thread_decrement, NULL);
     pthread_join(tid1, NULL);
     pthread_join(tid2, NULL);
     if (x != 0)
         printf("BOOM! counter=%d\n", x);
     else
         printf("OK counter=%d\n", x);
+
+    sem_destroy(&full);
+    sem_destroy(&empty);
+    sem_destroy(&mutex);
 }
 
-/* thread routine */
-void * thread_increment (void *arg) {
+void * s_thread_increment (void *arg) {
     int i, val;
     for (i=0; i< ITER ; i++) {
         sem_wait(&empty);
@@ -56,7 +46,7 @@ void * thread_increment (void *arg) {
     return NULL;
 }
 
-void * thread_decrement (void *arg) {
+void * s_thread_decrement (void *arg) {
     int i, val;
     for (i = 0; i < ITER; i++) {
         sem_wait(&full);

@@ -1,4 +1,4 @@
-C:\Users\GodBell\AppData\Local\JetBrains\CLion2020.3\cygwin_cmake\bin\cmake.exe -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /cygdrive/e/Programming/4_C/Synch
+C:\Users\김종하\AppData\Local\JetBrains\CLion2021.1\cygwin_cmake\bin\cmake.exe -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /cygdrive/c/Users/김종하/Documents/Programming/Producer-And-Consumer-In-C
 -- Configuring done
 -- Generating done
--- Build files have been written to: /cygdrive/e/Programming/4_C/Synch/cmake-build-debug
+-- Build files have been written to: /cygdrive/c/Users/源�醫낇븯/Documents/Programming/Producer-And-Consumer-In-C/cmake-build-debug

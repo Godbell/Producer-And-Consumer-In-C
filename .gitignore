@@ -25,7 +25,7 @@
 
 # Executables
 *.exe
-*.out
+*.s_out
 *.app
 
 ### JetBrains template
@@ -60,7 +60,7 @@
 ## Plugin-specific files:
 
 # IntelliJ
-/out/
+/s_out/
 
 # mpeltonen/sbt-idea plugin
 .idea_modules/
