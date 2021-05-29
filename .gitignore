@@ -78,4 +78,3 @@ fabric.properties
 .idea/
 cmake-build-debug/
 CMakeLists.txt
-man csh.md

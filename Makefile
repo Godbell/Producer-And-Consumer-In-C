@@ -9,7 +9,7 @@ CFLAGS = -g $(INC)
 OBJS = main.o
 SRCS = main.c
 
-TARGET = shell.exe
+TARGET = synch.exe
 
 all : $(TARGET)
 
