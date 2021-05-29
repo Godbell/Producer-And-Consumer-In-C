@@ -142,32 +142,32 @@ MyShell/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MyShell.dir/build.make CMakeFiles/MyShell.dir/build
 .PHONY : MyShell/fast
 
-synch_pthread.o: synch_pthread.c.o
+synch_mutex.o: synch_mutex.c.o
 
-.PHONY : synch_pthread.o
+.PHONY : synch_mutex.o
 
 # target to build an object file
-synch_pthread.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MyShell.dir/build.make CMakeFiles/MyShell.dir/synch_pthread.c.o
-.PHONY : synch_pthread.c.o
+synch_mutex.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MyShell.dir/build.make CMakeFiles/MyShell.dir/synch_mutex.c.o
+.PHONY : synch_mutex.c.o
 
-synch_pthread.i: synch_pthread.c.i
+synch_mutex.i: synch_mutex.c.i
 
-.PHONY : synch_pthread.i
+.PHONY : synch_mutex.i
 
 # target to preprocess a source file
-synch_pthread.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MyShell.dir/build.make CMakeFiles/MyShell.dir/synch_pthread.c.i
-.PHONY : synch_pthread.c.i
+synch_mutex.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MyShell.dir/build.make CMakeFiles/MyShell.dir/synch_mutex.c.i
+.PHONY : synch_mutex.c.i
 
-synch_pthread.s: synch_pthread.c.s
+synch_mutex.s: synch_mutex.c.s
 
-.PHONY : synch_pthread.s
+.PHONY : synch_mutex.s
 
 # target to generate assembly for a file
-synch_pthread.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MyShell.dir/build.make CMakeFiles/MyShell.dir/synch_pthread.c.s
-.PHONY : synch_pthread.c.s
+synch_mutex.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MyShell.dir/build.make CMakeFiles/MyShell.dir/synch_mutex.c.s
+.PHONY : synch_mutex.c.s
 
 synch_semaphore.o: synch_semaphore.c.o
 
@@ -205,9 +205,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... MyShell"
-	@echo "... synch_pthread.o"
-	@echo "... synch_pthread.i"
-	@echo "... synch_pthread.s"
+	@echo "... synch_mutex.o"
+	@echo "... synch_mutex.i"
+	@echo "... synch_mutex.s"
 	@echo "... synch_semaphore.o"
 	@echo "... synch_semaphore.i"
 	@echo "... synch_semaphore.s"

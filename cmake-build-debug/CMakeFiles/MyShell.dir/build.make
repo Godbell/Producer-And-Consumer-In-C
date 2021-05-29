@@ -76,18 +76,18 @@ include CMakeFiles/MyShell.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/MyShell.dir/flags.make
 
-CMakeFiles/MyShell.dir/synch_pthread.c.o: CMakeFiles/MyShell.dir/flags.make
-CMakeFiles/MyShell.dir/synch_pthread.c.o: ../synch_pthread.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/c/Users/김종하/Documents/Programming/Producer-And-Consumer-In-C/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/MyShell.dir/synch_pthread.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/MyShell.dir/synch_pthread.c.o -c /cygdrive/c/Users/김종하/Documents/Programming/Producer-And-Consumer-In-C/synch_pthread.c
+CMakeFiles/MyShell.dir/synch_mutex.c.o: CMakeFiles/MyShell.dir/flags.make
+CMakeFiles/MyShell.dir/synch_mutex.c.o: ../synch_mutex.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/c/Users/김종하/Documents/Programming/Producer-And-Consumer-In-C/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/MyShell.dir/synch_mutex.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/MyShell.dir/synch_mutex.c.o -c /cygdrive/c/Users/김종하/Documents/Programming/Producer-And-Consumer-In-C/synch_mutex.c
 
-CMakeFiles/MyShell.dir/synch_pthread.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/MyShell.dir/synch_pthread.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /cygdrive/c/Users/김종하/Documents/Programming/Producer-And-Consumer-In-C/synch_pthread.c > CMakeFiles/MyShell.dir/synch_pthread.c.i
+CMakeFiles/MyShell.dir/synch_mutex.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/MyShell.dir/synch_mutex.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /cygdrive/c/Users/김종하/Documents/Programming/Producer-And-Consumer-In-C/synch_mutex.c > CMakeFiles/MyShell.dir/synch_mutex.c.i
 
-CMakeFiles/MyShell.dir/synch_pthread.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/MyShell.dir/synch_pthread.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /cygdrive/c/Users/김종하/Documents/Programming/Producer-And-Consumer-In-C/synch_pthread.c -o CMakeFiles/MyShell.dir/synch_pthread.c.s
+CMakeFiles/MyShell.dir/synch_mutex.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/MyShell.dir/synch_mutex.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /cygdrive/c/Users/김종하/Documents/Programming/Producer-And-Consumer-In-C/synch_mutex.c -o CMakeFiles/MyShell.dir/synch_mutex.c.s
 
 CMakeFiles/MyShell.dir/synch_semaphore.c.o: CMakeFiles/MyShell.dir/flags.make
 CMakeFiles/MyShell.dir/synch_semaphore.c.o: ../synch_semaphore.c
@@ -104,13 +104,13 @@ CMakeFiles/MyShell.dir/synch_semaphore.c.s: cmake_force
 
 # Object files for target MyShell
 MyShell_OBJECTS = \
-"CMakeFiles/MyShell.dir/synch_pthread.c.o" \
+"CMakeFiles/MyShell.dir/synch_mutex.c.o" \
 "CMakeFiles/MyShell.dir/synch_semaphore.c.o"
 
 # External object files for target MyShell
 MyShell_EXTERNAL_OBJECTS =
 
-MyShell.exe: CMakeFiles/MyShell.dir/synch_pthread.c.o
+MyShell.exe: CMakeFiles/MyShell.dir/synch_mutex.c.o
 MyShell.exe: CMakeFiles/MyShell.dir/synch_semaphore.c.o
 MyShell.exe: CMakeFiles/MyShell.dir/build.make
 MyShell.exe: CMakeFiles/MyShell.dir/link.txt

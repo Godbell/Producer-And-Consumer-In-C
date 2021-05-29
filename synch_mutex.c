@@ -1,12 +1,9 @@
-#include <pthread.h>
-#include <stdio.h>
-#include "synch_pthread.h"
+#include "synch_mutex.h"
 #include "threading_variables.h"
 
 #define ITER 1000
-#define BUFFER_SIZE 30
 
-int p_main() {
+int main() {
     pthread_t tid1, tid2;
 
     pthread_mutex_init(&mutex, NULL);
@@ -33,7 +30,7 @@ void * p_thread_increment (void *arg) {
     for (i=0; i< ITER ; i++) {
         pthread_mutex_lock(&mutex);
 
-        if (x == 100)
+        if (x == BUFFER_SIZE)
         {
             pthread_cond_wait(&buffer_has_space, &mutex);
         }

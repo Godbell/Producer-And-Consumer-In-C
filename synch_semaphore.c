@@ -1,15 +1,13 @@
-#include <pthread.h>
-#include <stdio.h>
-#include <semaphore.h>
 #include "synch_semaphore.h"
 #include "threading_variables.h"
 
 #define ITER 1000
 
-int s_main() {
+int main() {
     pthread_t tid1, tid2;
 
     // initialize semaphore
+    sem_init(&empty,0, 30);
     sem_init(&full, 0, 0);
     sem_init(&mutex, 0, 1);
 

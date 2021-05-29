@@ -3,4 +3,4 @@ project(MyShell C)
 
 set(CMAKE_C_STANDARD 99)
 
-add_executable(MyShell synch_pthread.c synch_semaphore.c main.cpp)
+add_executable(MyShell synch_mutex.c synch_semaphore.c)

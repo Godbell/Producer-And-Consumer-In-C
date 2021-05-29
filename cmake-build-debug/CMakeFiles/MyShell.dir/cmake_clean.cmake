@@ -1,5 +1,5 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/MyShell.dir/synch_pthread.c.o"
+  "CMakeFiles/MyShell.dir/synch_mutex.c.o"
   "CMakeFiles/MyShell.dir/synch_semaphore.c.o"
   "MyShell.exe"
   "MyShell.pdb"

@@ -3,24 +3,33 @@
 CC = gcc
 
 INC =
-LIBS =
+LIBS_SEM = synch_semaphore.h threading_variables.h
+LIBS_MUTEX = synch_mutex.h threading_variables.h
 CFLAGS = -g $(INC)
 
-OBJS = main.o
-SRCS = main.c
+OBJ_SEM= synch_semaphore.o
+SRC_SEM = synch_semaphore.c
 
-TARGET = synch.exe
+OBJ_MUTEX= synch_mutex.o
+SRC_MUTEX = synch_mutex.c
 
-all : $(TARGET)
+TARGET_SEM = synch_semaphore.exe
+TARGET_MUTEX = synch_mutex.exe
 
-$(TARGET) : $(OBJS)
-				$(CC) -o $@ $(OBJS) $(LIBS)
+all : $(TARGET_SEM) $(TARGET_MUTEX)
+
+$(TARGET_SEM) : $(OBJ_SEM)
+				$(CC) -pthread -o $@ $(OBJ_SEM) $(LIBS_SEM)
+$(TARGET_MUTEX) : $(OBJ_MUTEX)
+				$(CC) -pthread -o  $@ $(OBJ_MUTEX) $(LIBS_MUTEX)
 
 dep :
-				gccmakedep $(INC) $(SRCS)
+				gccmakedep $(INC) $(SRC_SEM)
+				gccmakedep $(INC) $(SRC_MUTEX)
 
 clean :
-				rm -rf $(OBJS) $(TARGET) core
+				rm -rf $(OBJ_SEM) $(TARGET_SEM) core
+				rm -rf $(OBJ_MUTEX) $(TARGET_MUTEX) core
 
 new : 
 				$(MAKE) clean
