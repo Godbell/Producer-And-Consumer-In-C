@@ -4,8 +4,8 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "/cygdrive/c/Users/김종하/Documents/Programming/Producer-And-Consumer-In-C/synch_mutex.c" "/cygdrive/c/Users/김종하/Documents/Programming/Producer-And-Consumer-In-C/cmake-build-debug/CMakeFiles/MyShell.dir/synch_mutex.c.o"
-  "/cygdrive/c/Users/김종하/Documents/Programming/Producer-And-Consumer-In-C/synch_semaphore.c" "/cygdrive/c/Users/김종하/Documents/Programming/Producer-And-Consumer-In-C/cmake-build-debug/CMakeFiles/MyShell.dir/synch_semaphore.c.o"
+  "/cygdrive/e/Programming/4_C/Synch/synch_mutex.c" "/cygdrive/e/Programming/4_C/Synch/cmake-build-debug/CMakeFiles/MyShell.dir/synch_mutex.c.o"
+  "/cygdrive/e/Programming/4_C/Synch/synch_semaphore.c" "/cygdrive/e/Programming/4_C/Synch/cmake-build-debug/CMakeFiles/MyShell.dir/synch_semaphore.c.o"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 

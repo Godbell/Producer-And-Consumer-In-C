@@ -10,8 +10,8 @@ int main() {
     pthread_cond_init(&buffer_has_space, NULL);
     pthread_cond_init(&buffer_has_data, NULL);
 
-    pthread_create(&tid1, NULL, p_thread_increment, NULL);
-    pthread_create(&tid2, NULL, p_thread_decrement, NULL);
+    pthread_create(&tid1, NULL, thread_increment, NULL);
+    pthread_create(&tid2, NULL, thread_decrement, NULL);
     pthread_join(tid1, NULL);
     pthread_join(tid2, NULL);
     if (x != 0)
@@ -25,7 +25,7 @@ int main() {
 
     return 0;
 }
-void * p_thread_increment (void *arg) {
+void * thread_increment (void *arg) {
     int i, val;
     for (i=0; i< ITER ; i++) {
         pthread_mutex_lock(&mutex);
@@ -48,7 +48,7 @@ void * p_thread_increment (void *arg) {
     return NULL;
 }
 
-void * p_thread_decrement (void *arg) {
+void * thread_decrement (void *arg) {
     int i, val;
     for (i = 0; i < ITER; i++) {
         pthread_mutex_lock(&mutex);

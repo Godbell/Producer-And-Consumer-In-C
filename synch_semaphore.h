@@ -6,5 +6,5 @@ sem_t full;
 sem_t empty;
 sem_t mutex;
 
-void *s_thread_increment(void *arg);
-void *s_thread_decrement(void *arg);
+void *thread_increment(void *arg);
+void *thread_decrement(void *arg);

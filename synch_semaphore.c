@@ -11,8 +11,8 @@ int main() {
     sem_init(&full, 0, 0);
     sem_init(&mutex, 0, 1);
 
-    pthread_create(&tid1, NULL, s_thread_increment, NULL);
-    pthread_create(&tid2, NULL, s_thread_decrement, NULL);
+    pthread_create(&tid1, NULL, thread_increment, NULL);
+    pthread_create(&tid2, NULL, thread_decrement, NULL);
     pthread_join(tid1, NULL);
     pthread_join(tid2, NULL);
     if (x != 0)
@@ -25,7 +25,7 @@ int main() {
     sem_destroy(&mutex);
 }
 
-void * s_thread_increment (void *arg) {
+void * thread_increment (void *arg) {
     int i, val;
     for (i=0; i< ITER ; i++) {
         sem_wait(&empty);
@@ -44,7 +44,7 @@ void * s_thread_increment (void *arg) {
     return NULL;
 }
 
-void * s_thread_decrement (void *arg) {
+void * thread_decrement (void *arg) {
     int i, val;
     for (i = 0; i < ITER; i++) {
         sem_wait(&full);

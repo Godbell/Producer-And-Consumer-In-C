@@ -1,1 +1,1 @@
-/usr/bin/cc -g -Wl,--enable-auto-import CMakeFiles/MyShell.dir/synch_mutex.c.o CMakeFiles/MyShell.dir/synch_semaphore.c.o -o MyShell.exe -Wl,--out-implib,libMyShell.dll.a -Wl,--major-image-version,0,--minor-image-version,0 
+/usr/bin/cc -g  -Wl,--enable-auto-import CMakeFiles/MyShell.dir/synch_mutex.c.o CMakeFiles/MyShell.dir/synch_semaphore.c.o  -o MyShell.exe -Wl,--out-implib,libMyShell.dll.a -Wl,--major-image-version,0,--minor-image-version,0 
